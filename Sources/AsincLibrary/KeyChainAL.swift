@@ -9,7 +9,7 @@ public protocol KeyChainAL {
 }
 
 public struct KeychainManager: KeyChainAL {
-    static var shared: KeyChainAL {
+    public static var shared: KeyChainAL {
         return KeychainManager()
     }
     
