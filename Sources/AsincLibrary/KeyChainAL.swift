@@ -8,7 +8,28 @@ public protocol KeyChainAL {
     func removeKC(key: String, value: String) -> Bool
 }
 
-public struct KeyChain: KeyChainAL {
+public struct KeychainManager: KeyChainAL {
+    static var shared: KeyChainAL {
+        return KeychainManager()
+    }
+    
+    public init() {}
+    
+    public func setKC(key: String, value: String) -> Bool {
+        saveKC(key: key, value: value)
+    }
+    
+    public func getKC(key: String, value: String) -> String? {
+        loadKC(key: key)
+    }
+        
+    public func removeKC(key: String, value: String) -> Bool {
+        deleteKC(key: key)
+    }
+}
+
+// Alternativa sin manager
+public struct KeyChain {
     
     public init() {}
     
