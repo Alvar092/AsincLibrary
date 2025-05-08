@@ -4,8 +4,8 @@ import KeychainAccess
 
 public protocol KeyChainAL {
     func setKC(key: String, value: String) -> Bool
-    func getKC(key: String, value: String) -> String?
-    func removeKC(key: String, value: String) -> Bool
+    func getKC(key: String) -> String?
+    func removeKC(key: String) -> Bool
 }
 
 public struct KeychainManager: KeyChainAL {
@@ -19,11 +19,11 @@ public struct KeychainManager: KeyChainAL {
         saveKC(key: key, value: value)
     }
     
-    public func getKC(key: String, value: String) -> String? {
+    public func getKC(key: String) -> String? {
         loadKC(key: key)
     }
         
-    public func removeKC(key: String, value: String) -> Bool {
+    public func removeKC(key: String) -> Bool {
         deleteKC(key: key)
     }
 }
